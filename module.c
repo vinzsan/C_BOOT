@@ -42,8 +42,8 @@ char *itoa(int value) {
 void clear_screen(char color) {
     char *video = (char*)0xB8000;
     for (int i = 0; i < 80*25; i++) {
-        video[i*2] = ' ';      // spasi
-        video[i*2+1] = color;  // warna (misal 0x07: abu-abu di hitam)
+        video[i*2] = ' ';
+        video[i*2+1] = color;
     }
 }
 
