@@ -10,7 +10,8 @@ void print(char *str){
         putch(*str++);
     }
 }
-
+// Belum ;-;
+__asm__(".code32\n");
 void printv(char* text, char color)
 {
     char* video_mem = (char*)0xB8000;
