@@ -22,6 +22,22 @@ void printv(char* text, char color)
     }
 }
 
+#define VIDEO_MEMORY 0xB8000
+#define ROWS 25
+#define COLS 80
+
+void putc_at(char c, int row, int col, char attr) {
+    unsigned short *vmem = (unsigned short*) VIDEO_MEMORY;
+    int index = row * COLS + col;
+    vmem[index] = (attr << 8) | c;
+}
+
+void puts_at(const char* s, int row, int col, char attr) {
+    while (*s) {
+        putc_at(*s++, row, col++, attr);
+    }
+}
+
 char *itoa(int value) {
     static char buf[20];
     char *p = buf + sizeof(buf) - 1;
