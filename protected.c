@@ -10,7 +10,7 @@ void pmode_entry(void) {
         "mov %%ax, %%ss\n\t"
         "mov $0x90000, %%esp\n\t"
 //      	"ljmp *kernel_entry\n\t"
-        "call kernel_entry\n\t"
+        "ljmp $0x0000,$0x1000\n\t"
         "hlt\n"
         ::: "ax"
     );
